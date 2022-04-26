@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 
-const socket = io.connect();
+const socket = io("https://master--extraordinary-zabaione-ae3687.netlify.app/");
 
 function App() {
   const [username, setUsername] = useState("");
