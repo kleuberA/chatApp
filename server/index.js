@@ -1,8 +1,9 @@
 const express = require("express");
-const app = express();
-const http = require("http");
 const cors = require("cors");
+const http = require("http");
 const { Server } = require("socket.io");
+const app = express();
+
 app.use(cors());
 
 const server = http.createServer(app);
@@ -38,5 +39,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(3001, () => {
-  console.log("SERVIDOR RODANDO.");
+  console.log("SERVIDOR INICIADO.");
 });
