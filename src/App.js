@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import "./App.css";
 import io from "socket.io-client";
 import { useState } from "react";
@@ -6,8 +7,8 @@ import Chat from "./Chat";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-
-const socket = io.connect("http://localhost:3001");
+const ENDPOINT = 'https://62683b12f8b60c09e1837b2e--beautiful-vacherin-5c5d48.netlify.app/';
+let socket;
 
 function App() {
   const [username, setUsername] = useState("");
@@ -20,6 +21,10 @@ function App() {
       setShowChat(true);
     }
   };
+  useEffect(()=>{
+    socket = io(ENDPOINT);
+  })
+  
   //Implementar alert success com o id do usuario.
   console.log(socket.id)
 
