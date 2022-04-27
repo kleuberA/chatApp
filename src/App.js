@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 
-const socket = io("https://chat-app-kleubera.vercel.app/");
+const socket = io.connect();
 
 function App() {
   const [username, setUsername] = useState("");
