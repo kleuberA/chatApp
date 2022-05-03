@@ -15,7 +15,7 @@ body {
 }
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 
-.joinChatContainer {
+.entradaChatContainer {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -32,11 +32,11 @@ body {
   justify-content: space-around;
 }
 
-.joinChatContainer h3 {
+.entradaChatContainer h3 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
-.joinChatContainer text {
+.entradaChatContainer text {
   width: 210px;
   height: 40px;
   margin: 7px;
@@ -44,7 +44,7 @@ body {
   font-size: 16px;
 }
 
-.joinChatContainer button {
+.entradaChatContainer button {
   width: 225px;
   height: 50px;
   margin: 7px;
@@ -66,22 +66,22 @@ body {
   background-color: rgba(255,255,255,0.2);
 }
 
-.chat-window {
+.janelaChatContainer {
   width: 400px;
   height: 420px;
 }
 
-.chat-window p {
+.janelaChatContainer p {
   margin: 0;
 }
-.chat-window .chat-header {
+.janelaChatContainer .chatHeaderContainer {
   backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(155, 155, 155, 0.75);
   border-radius: 12px 12px 0 0;
   border: 1px solid rgba(255, 255, 255, 0.125);
   width: 400px;
 }
-.chat-window .chat-header p {
+.janelaChatContainer .chatHeaderContainer p {
   display: block;
   padding: 0 1em 0 2em;
   color: #fff;
@@ -89,7 +89,7 @@ body {
   line-height: 45px;
 }
 
-.chat-window .chat-body {
+.janelaChatContainer .chatBodyContainer {
   display: flex;
     flex-direction: column;
     text-align: center;
@@ -102,23 +102,23 @@ body {
     align-items: center;
     justify-content: space-around;
 }
-.chat-window .chat-body .message-container {
+.janelaChatContainer .chatBodyContainer .containerMessage {
   width: 100%;
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-.chat-window .chat-body .message-container::-webkit-scrollbar {
+.janelaChatContainer .chatBodyContainer .containerMessage::-webkit-scrollbar {
   display: none;
 }
-.chat-window .chat-body .message {
+.janelaChatContainer .chatBodyContainer .mensagem {
   height: auto;
   padding: 10px;
   display: flex;
 }
 
-.chat-window .chat-body .message .message-content {
+.janelaChatContainer .chatBodyContainer .mensagem .conteudoDaMensagem {
   width: auto;
   height: auto;
   min-height: 40px;
@@ -137,45 +137,49 @@ body {
   justify-content: flex-end;
 }
 
-#you .message-content {
+#you .conteudoDaMensagem {
   justify-content: flex-start;
   border-radius: 15px 1px 15px 15px;
   backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(0, 104, 255, 0.75);
 }
 
-#you .message-meta {
+#you .informacaoMensagem {
   justify-content: flex-end;
   margin-left: 5px;
+  display: flex;
+  font-size: 14px;
 }
 
 #other {
   justify-content: flex-start;
 }
 
-#other .message-content {
+#other .conteudoDaMensagem {
   justify-content: flex-start;
   backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(6, 6, 6, 0.75);
   border-radius: 15px 15px 15px 1px;
 }
 
-#other .message-meta {
+#other .informacaoMensagem {
   justify-content: flex-start;
   margin-right: 5px;
+  display: flex;
+  font-size: 14px;
 }
 
-.message-meta #author {
+.informacaoMensagem #author {
   margin-right: 5px;
   font-weight: bold;
 }
 
-.chat-window .chat-body .message .message-meta {
+.janelaChatContainer .chatBodyContainer .message .informacaoMensagem {
   display: flex;
   font-size: 12px;
 }
 
-.chat-window .chat-footer {
+.janelaChatContainer .chat-footer {
   width: 400px;
   height: 50px;
   display: flex;
@@ -189,7 +193,7 @@ body {
   border-radius: 0 0 5px 5px;
 }
 
-.chat-window .chat-footer input {
+.janelaChatContainer .chat-footer input {
   flex: 85%;
   padding: 0 0.7em;
   font-size: 1em;
@@ -204,7 +208,7 @@ body {
   margin-left: 10px;
 }
 
-.chat-window .chat-footer button {
+.janelaChatContainer .chat-footer button {
   place-items: center;
   cursor: pointer;
   flex: 15%;
@@ -224,11 +228,11 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
-.chat-window .chat-footer button ion-icon{
+.janelaChatContainer .chat-footer button ion-icon{
   transform: rotate(45deg);
 }
 
-.chat-window .chat-footer button:hover {
+.janelaChatContainer .chat-footer button:hover {
   color: rgba(0, 104, 255, 0.75);
 }
 .hide {
@@ -240,7 +244,25 @@ body {
   font-family: 'Courier New', Courier, monospace;
   color: #fff;
 }
-.react-scroll-to-bottom--css-xubpl-1tj0vk3 {
+.containerMessage div::-webkit-scrollbar{
+  width: 10px;
+}
+.containerMessage div::-webkit-scrollbar-track-piece {
+  background-color: #EEE;
+  border-left: 1px solid #CCC;
+  border-radius: 5px;
+}
+.containerMessage div::-webkit-scrollbar-thumb:vertical,
+.containerMessage div::-webkit-scrollbar-thumb:horizontal {
+    background-color: #BAC0C4;
+    border-radius: 5px;
+}
+
+.containerMessage div::-webkit-scrollbar-thumb:vertical:hover,
+.containerMessage div::-webkit-scrollbar-thumb:horizontal:hover {
+    background-color: #717171
+}
+.containerMessage button{
   background-image: url('./downOutline.svg');
   bottom: 5px;
   cursor: pointer;
@@ -250,7 +272,7 @@ body {
   right: 20px;
   width: 20px;
   backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(103, 114, 125, 0.75);
+  background-color: aliceblue;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
   filter: invert(1);

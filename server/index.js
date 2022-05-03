@@ -22,23 +22,44 @@ const io = new Server(server, {
   },
 });
 
+// CORES
+let reset = '\u001b[0m';
+let azul = '\u001b[34m';
+let verde = '\u001b[32m';
+let vermelho = '\u001b[31m';
+
 io.on("connection", (socket) => {
-  console.log(`Usuario Conectado: ${socket.id}`);
+  let str = '#';
+  console.log(azul + str.repeat(47) + reset);
+  console.log(verde + socket.handshake.time);
+  console.log(`Usuario Conectado:${vermelho} ${socket.id}` + reset);
+  console.log(azul + str.repeat(47) + reset);
 
   socket.on("join_room", (data) => {
     socket.join(data);
-    console.log(`ID Usuario: ${socket.id} entrou na sala: ${data}`);
+    let str = '#';
+    console.log(azul + str.repeat(47) + reset);
+    console.log(verde + `Usuario:${vermelho} ${socket.id} ${verde}entrou na sala:${vermelho} ${data}` + reset);
+    console.log(azul + str.repeat(47) + reset);
   });
 
   socket.on("send_message", (data) => {
     socket.to(data.room).emit("receive_message", data);
+    // console.log(`${verde}Mensagem enviada:${vermelho} ${data.message} ${verde}pelo usuario ${vermelho}${socket.id}`+ reset);
   });
 
   socket.on("disconnect", () => {
-    console.log("Usuario desconectado.", socket.id);
+    let str = '#';
+    console.log(vermelho + str.repeat(47) + reset);
+    console.log(verde + "Usuario desconectado. " + socket.id + reset);
+    console.log(vermelho + str.repeat(47) + reset);
   });
 });
 
 server.listen(process.env.PORT || 3001, () => {
-  console.log("SERVIDOR INICIADO.");
+  let str = '-';
+  console.log(azul + str.repeat(47));
+  console.log(str.repeat(15)+'SERVIDOR INICIADO'+str.repeat(15));
+  console.log(str.repeat(15)+'CHAT APS'+str.repeat(24))
+  console.log(str.repeat(47) + reset);
 });

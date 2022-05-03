@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("127.0.0.1:3001");
 
 function App() {
   const [username, setUsername] = useState("");
@@ -30,7 +30,7 @@ function App() {
     
     <div className="App">
       {!showChat ? (
-        <div className="joinChatContainer">
+        <div className="entradaChatContainer">
           <h3 className="titulo-principal">Chat Aps</h3>
           <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
             <TextField id="input-with-sx" className="inputNomeUsuario" label="Nome Usuario" variant="standard" onChange={(event) => {
@@ -38,7 +38,7 @@ function App() {
             }}/>
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-            <TextField id="input-with-sx" label="ID Sala" variant="standard" onChange={(event) => {
+            <TextField id="input-with-sx" label="Sala" variant="standard" onChange={(event) => {
               setRoom(event.target.value);
             }}/>
           </Box>

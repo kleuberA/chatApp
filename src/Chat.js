@@ -30,23 +30,23 @@ function Chat({ socket, username, room }) {
   }, [socket]);
 
   return (
-    <div className="chat-window">
-      <div className="chat-header">
+    <div className="janelaChatContainer">
+      <div className="chatHeaderContainer">
         <p>Chat Aps</p>
       </div>
-      <div className="chat-body">
-        <ScrollToBottom className="message-container">
-          {messageList.map((messageContent) => {
-            return (
+      <div className="chatBodyContainer">
+        <ScrollToBottom className="containerMessage">
+          {messageList.map((messageContent, key) => {
+            return (  
               <div
-                className="message"
+                className="mensagem"
                 id={username === messageContent.author ? "you" : "other"}
               >
                 <div>
-                  <div className="message-content">
+                  <div className="conteudoDaMensagem">
                     <p>{messageContent.message}</p>
                   </div>
-                  <div className="message-meta">
+                  <div className="informacaoMensagem">
                     <p id="author">{messageContent.author} </p>
                     <p id="time"> {messageContent.time} </p>
                   </div>
