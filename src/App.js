@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 
-const socket = io.connect("127.0.0.1:3000");
+const socket = io.connect("http://localhost:3001");
 
 function App() {
   const [username, setUsername] = useState("");
