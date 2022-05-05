@@ -35,16 +35,17 @@ io.on("connection", (socket) => {
   console.log(`Usuario Conectado:${vermelho} ${socket.id}` + reset);
   console.log(azul + str.repeat(47) + reset);
 
-  socket.on("join_room", (data) => {
-    socket.join(data);
+  socket.on("join_room", (sala) => {
+    socket.join(sala);
     let str = '#';
     console.log(azul + str.repeat(47) + reset);
-    console.log(verde + `Usuario:${vermelho} ${socket.id} ${verde}entrou na sala:${vermelho} ${data}` + reset);
+    console.log(verde + `Usuario:${vermelho} ${socket.id} ${verde}entrou na sala:${vermelho} ${sala}` + reset);
     console.log(azul + str.repeat(47) + reset);
   });
 
   socket.on("send_message", (data) => {
     socket.to(data.room).emit("receive_message", data);
+    console.log(data)
     // console.log(`${verde}Mensagem enviada:${vermelho} ${data.message} ${verde}pelo usuario ${vermelho}${socket.id}`+ reset);
   });
 
